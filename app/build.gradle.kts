@@ -3,7 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
-    id("com.google.gms.google-services")
+    // Temporarily disabled - causes crash with placeholder credentials
+    // id("com.google.gms.google-services")
 }
 
 android {
@@ -130,12 +131,13 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     implementation("com.google.code.gson:gson:2.10.1")
     
-    // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
-    implementation("com.google.firebase:firebase-firestore-ktx")
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-crashlytics-ktx")
-    implementation("com.google.firebase:firebase-perf-ktx")
+    // Firebase - Temporarily disabled (causing crash with placeholder credentials)
+    // Uncomment when you have real Firebase project setup
+    // implementation(platform("com.google.firebase:firebase-bom:32.7.1"))
+    // implementation("com.google.firebase:firebase-firestore-ktx")
+    // implementation("com.google.firebase:firebase-analytics-ktx")
+    // implementation("com.google.firebase:firebase-crashlytics-ktx")
+    // implementation("com.google.firebase:firebase-perf-ktx")
     
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:2.9.0")
