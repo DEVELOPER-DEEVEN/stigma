@@ -13,7 +13,7 @@ import com.stigma.data.local.entity.ClaimEntity
         AnalysisEntity::class
     ],
     version = 1,
-    exportSchema = true
+    exportSchema = false
 )
 abstract class StigmaDatabase : RoomDatabase() {
     abstract fun claimDao(): ClaimDao
