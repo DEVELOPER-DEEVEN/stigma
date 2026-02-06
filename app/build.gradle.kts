@@ -21,6 +21,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        
+        // BuildConfig fields for Azure OpenAI
+        buildConfigField("String", "AZURE_ENDPOINT", "\"https://api.openai.azure.com/\"")
+        buildConfigField("String", "AZURE_DEPLOYMENT", "\"gpt-4\"")
+        buildConfigField("String", "AZURE_API_VERSION", "\"2024-02-01\"")
 
         // Build config fields from local.properties
         val properties = org.jetbrains.kotlin.konan.properties.Properties()
