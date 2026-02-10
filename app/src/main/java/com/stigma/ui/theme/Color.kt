@@ -38,6 +38,10 @@ val StigmaParticleBlue = Color(0x6060A5FA)
 val StigmaParticleCyan = Color(0x6022D3EE)
 val StigmaParticlePink = Color(0x60EC4899)
 
+// Shadow Colors
+val StigmaShadowPurple = Color(0x408B5CF6)
+val StigmaShadowBlue = Color(0x403B82F6)
+
 // Shimmer Colors
 val StigmaShimmerBase = Color(0x20FFFFFF)
 val StigmaShimmerHighlight = Color(0x40FFFFFF)
