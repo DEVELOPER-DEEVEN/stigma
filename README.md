@@ -1,89 +1,65 @@
-# STIGMA - Decision-Advocacy Intelligence
+# STIGMA
 
-Premium AI-powered decision analysis platform with ultra-artistic UI.
+> **Decision-Advocacy Intelligence Platform**
+>
+> A premium, AI-powered decision analysis tool featuring a glassmorphic UI and offline-first architecture.
 
-## 🎨 Features
+## 📋 Overview
 
-- **Premium Glassmorphic UI** - Holographic effects, neon glows, particle backgrounds
-- **AI-Powered Analysis** - Azure OpenAI integration for decision advocacy
-- **Offline-First** - Room database with reactive data streams
-- **Real-Time Updates** - Firebase Firestore integration ready
-- **Production Architecture** - MVVM + Hilt DI + Repository pattern
+Stigma leverages Azure OpenAI to provide decision advocacy and analysis. It is built with a focus on:
+- **Hygiene:** Clean Architecture (MVVM + Repository Pattern).
+- **Performance:** Offline-first with Room and reactive data streams.
+- **UX:** High-fidelity glassmorphic design system using Jetpack Compose.
 
-## 🚀 Building the APK
+## 🛠 Development
 
-### Option 1: GitHub Actions (Recommended - No local setup needed!)
+### Prerequisites
+- **JDK:** 17
+- **Android Studio:** Hedgehog (2023.1.1) or newer
+- **Android SDK:** API 34 (UpsideDownCake)
 
-1. **Push to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit - Premium STIGMA app"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/stigma.git
-   git push -u origin main
-   ```
+### Configuration
+Create a `local.properties` file in the project root to configure Azure OpenAI credentials:
 
-2. **Set up secrets** (in GitHub repository settings):
-   - Go to: Settings → Secrets and variables → Actions → New repository secret
-   - Add these secrets:
-     - `AZURE_OPENAI_ENDPOINT`
-     - `AZURE_OPENAI_KEY`
-     - `AZURE_OPENAI_DEPLOYMENT`
-     - `AZURE_OPENAI_API_VERSION`
+```properties
+sdk.dir=/path/to/android/sdk
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_KEY=your-api-key
+AZURE_OPENAI_DEPLOYMENT=gpt-4
+AZURE_OPENAI_API_VERSION=2024-02-01
+```
 
-3. **Download APK**:
-   - Go to: Actions tab → Latest workflow run
-   - Download `stigma-debug-apk` artifact
-   - Extract ZIP to get `app-debug.apk`
+### Build
+Run the debug build via Gradle:
 
-### Option 2: Local Build with Android Studio
+```bash
+./gradlew assembleDebug
+```
 
-1. Install [Android Studio](https://developer.android.com/studio)
-2. Open this project
-3. Build → Build Bundle(s) / APK(s) → Build APK(s)
-4. APK location: `app/build/outputs/apk/debug/app-debug.apk`
+The APK will be located at: `app/build/outputs/apk/debug/app-debug.apk`
 
-## 📱 Installation
+## 🏗 Architecture
 
-1. Enable "Install from Unknown Sources" on your Android device
-2. Transfer the APK to your device
-3. Install and enjoy!
+The project follows [Google's Guide to App Architecture](https://developer.android.com/topic/architecture):
 
-## 🎯 Architecture
-
-- **UI Layer**: Jetpack Compose with premium components
-- **Domain Layer**: Clean architecture with use cases
-- **Data Layer**: Room (local) + Firebase (remote sync)
-- **DI**: Hilt for dependency injection
-- **Reactive**: Kotlin Coroutines + Flow
-
-## 🌟 Premium UI Components
-
-- `GlassCard` - Glassmorphic cards with blur
-- `NeonButton` - Pulsing glow buttons
-- `ParticleBackground` - Animated particles
-- `AnimatedWave` - Sine wave animations
-- `ShimmerEffect` - Loading states
-- `PulsingIndicators` - Live status indicators
+- **UI Layer**: Jetpack Compose, Material 3
+- **Domain Layer**: Use Cases, Repository Interfaces (Pure Kotlin)
+- **Data Layer**: Repositories (Impl), Data Sources (Room, Retrofit)
+- **DI**: Hilt
 
 ## 📦 Tech Stack
 
-- Kotlin
-- Jetpack Compose
-- Material 3
-- Hilt (DI)
-- Room (Database)
-- Firebase (Firestore, Analytics, Crashlytics)
-- Retrofit + OkHttp
-- Azure OpenAI
-- Lottie Animations
-- Google Fonts
+| Category | Technology |
+|----------|------------|
+| Language | Kotlin |
+| UI | Jetpack Compose, Material 3 |
+| DI | Dagger Hilt |
+| Database | Room (SQLite) |
+| Network | Retrofit, OkHttp |
+| AI | Azure OpenAI SDK |
+| Async | Coroutines, Flow |
+| Logging | Timber |
 
-## 📄 License
+## ⚖️ License
 
-Private project - All rights reserved
-
----
-
-**Built with ❤️ and cutting-edge Android tech**
+Private Repository. All rights reserved.
