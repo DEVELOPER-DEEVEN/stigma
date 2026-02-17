@@ -4,6 +4,9 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.stigma.BuildConfig
 import com.stigma.data.remote.AzureOpenAIApi
+import com.stigma.data.remote.model.AzureOpenAIModel
+import com.stigma.data.remote.provider.AzureOpenAIProvider
+import com.stigma.data.remote.provider.DefaultAzureOpenAIProvider
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -63,5 +66,29 @@ object NetworkModule {
     @Singleton
     fun provideAzureOpenAIApi(retrofit: Retrofit): AzureOpenAIApi {
         return retrofit.create(AzureOpenAIApi::class.java)
+    }
+    
+    @Provides
+    @Singleton
+    fun provideAzureOpenAIProvider(
+        azureOpenAIApi: AzureOpenAIApi
+    ): AzureOpenAIProvider {
+        return DefaultAzureOpenAIProvider(
+            azureOpenAIApi = azureOpenAIApi,
+            endpoint = BuildConfig.AZURE_OPENAI_ENDPOINT,
+            version = BuildConfig.AZURE_OPENAI_API_VERSION
+        )
+    }
+    
+    @Provides
+    @Singleton
+    fun provideAzureOpenAIModel(
+        provider: AzureOpenAIProvider
+    ): AzureOpenAIModel {
+        return AzureOpenAIModel(
+            provider = provider,
+            apiKey = BuildConfig.AZURE_OPENAI_KEY,
+            deploymentId = BuildConfig.AZURE_OPENAI_DEPLOYMENT
+        )
     }
 }
