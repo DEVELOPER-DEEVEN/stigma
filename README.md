@@ -47,6 +47,10 @@ The project follows [Google's Guide to App Architecture](https://developer.andro
 - **Data Layer**: Repositories (Impl), Data Sources (Room, Retrofit)
 - **DI**: Hilt
 
+### Design Patterns
+
+- **Client Property Pattern**: Used in Azure OpenAI integration to avoid stale client references. See [docs/CLIENT_PROPERTY_PATTERN.md](docs/CLIENT_PROPERTY_PATTERN.md) for details.
+
 ## 📦 Tech Stack
 
 | Category | Technology |
